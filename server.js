@@ -4,10 +4,13 @@ import mongoose from 'mongoose';
 mongoose.connect('mongodb://localhost:27017/cats', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useFindAndModify: false,
 });
 
 // Express server for routing, logic
 const server = express();
+
+// Use json() middleware that parses the request body to proper JSON
 server.use(express.json());
 
 // Cat model (as defined in mongoose)
